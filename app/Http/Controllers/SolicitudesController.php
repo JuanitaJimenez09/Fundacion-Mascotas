@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Solicitudes;
+use App\Models\Solicitud;
 use App\Models\Mascota;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class SolicitudesController extends Controller
      */
     public function index()
     {
-        $solicitudes = Solicitudes::all();
+        $solicitudes = Solicitud::all();
         return view('solicitudes.index', compact('solicitudes'));
         //
     }
@@ -46,7 +46,7 @@ class SolicitudesController extends Controller
 
         ]);
 
-        Solicitudes::create($request->all());
+        Solicitud::create($request->all());
 
         return redirect('/solicitudes')
             ->with('success', 'Solicitud creada exitosamente.');
@@ -54,7 +54,7 @@ class SolicitudesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Solicitudes $solicitudes)
+    public function show(Solicitud $solicitudes)
     {
         return view('solicitudes.show', compact('solicitudes'));
         //
@@ -63,7 +63,7 @@ class SolicitudesController extends Controller
 
     public function aprobar($id)
     {
-        $solicitud = Solicitudes::findOrFail($id);
+        $solicitud = Solicitud::findOrFail($id);
         $solicitud->estado = 'aprobada';
         $solicitud->save();
 
@@ -73,7 +73,7 @@ class SolicitudesController extends Controller
 
     public function rechazar($id)
     {
-        $solicitud = Solicitudes::findOrFail($id);
+        $solicitud = Solicitud::findOrFail($id);
         $solicitud->estado = 'rechazada';
         $solicitud->save();
 
@@ -84,7 +84,7 @@ class SolicitudesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Solicitudes $solicitudes)
+    public function edit(Solicitud $solicitudes)
     {
         $mascotas = Mascota::all();
         return view('solicitudes.edit', compact('solicitudes', 'mascotas'));
@@ -94,7 +94,7 @@ class SolicitudesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Solicitudes $solicitudes)
+    public function update(Request $request, Solicitud $solicitudes)
     {
          $data=$request->validate([
             'nombre_solicitante' => 'required|string|max:255',
@@ -114,7 +114,7 @@ class SolicitudesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Solicitudes $solicitudes)
+    public function destroy(Solicitud $solicitudes)
 
     {
         $solicitudes->delete();
