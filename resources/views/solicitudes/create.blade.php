@@ -41,7 +41,7 @@
 
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+        <button type="submit" class="btn btn-outline-primary">Enviar Solicitud</button>
     </form>
 </div>
 @endsection

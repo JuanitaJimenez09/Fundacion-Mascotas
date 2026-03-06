@@ -52,7 +52,7 @@
                 <option value="adoptado">Adoptado</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Registrar Mascota</button>
+        <button type="submit" class="btn btn-outline-primary">Registrar Mascota</button>
     </form>
 
 
