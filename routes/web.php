@@ -5,6 +5,10 @@ use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\SolicitudesController;
 use App\Models\Solicitudes; 
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('mascotas/', [MascotaController::class, 'index']);
 Route::get('mascotas/create', [MascotaController::class, 'create']);
 Route::post('mascotas/', [MascotaController::class, 'store']);
