@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Solicitudes extends Model
-
+class Solicitud extends Model
 {
-    
-   protected $fillable = [
+    use HasFactory;
+
+    protected $table = 'solicitudes';
+
+    protected $fillable = [
         'mascota_id',
         'nombre_solicitante',
         'correo_electronico',
@@ -16,12 +19,11 @@ class Solicitudes extends Model
         'direccion',
         'motivo_adopcion',
         'fecha_solicitud',
+        'estado'
     ];
 
     public function mascota()
     {
         return $this->belongsTo(Mascota::class);
     }
-    
-
 }
