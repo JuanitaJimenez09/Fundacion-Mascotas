@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('solicitudes', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('mascota_id');
-            $table->string('nombre_solicitante');
-            $table->string('telefono');
-            $table->string('direccion');
-            $table->text('motivo_adopcion');
-            $table->enum('estado', ['pendiente', 'aprobada', 'rechazada']);
-            $table->timestamps();
-        });
+        $table->id();
+        $table->unsignedBigInteger('mascota_id');
+        $table->string('nombre_solicitante');
+        $table->string('correo_electronico');   // AGREGAR
+        $table->string('telefono');
+        $table->string('direccion');
+        $table->text('motivo_adopcion');
+        $table->date('fecha_solicitud');        // AGREGAR
+        $table->enum('estado', ['pendiente', 'aprobada', 'rechazada']);
+        $table->timestamps();
+    });
     }
 
     /**
